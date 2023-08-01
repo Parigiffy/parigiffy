@@ -1,0 +1,38 @@
+html{
+  scroll-behavior: smooth;
+}
+
+.content {
+  position: relative;
+  padding-top: 100px;
+  background-size: cover;
+  text-align: center;
+  height: 100vh;
+  background-color: #161616;
+}
+
+/* *::-webkit-scrollbar{
+  display: none;
+} */
+
+.loading{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.loading-img{
+  width: 120px;
+}
+
+.offcanvas.show:not(.hiding), .offcanvas.showing {
+  width: auto;
+}
+.offcanvas.show:not(.hiding) a {
+  border-bottom: #b4afaf solid 2px;
+  color: #d24e4e !important;
+  padding: 3px 0;
+  font-weight: lighter;
+}
