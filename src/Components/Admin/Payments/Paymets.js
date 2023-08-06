@@ -69,7 +69,7 @@ function Payments() {
   };
 
   const view_toggle = async (id) => {
-    const data = await axios.post(`/api/payments/${id}`);
+    const data = await axios.post(`${url}/api/payments/${id}`);
     setEdit(data.data);
     setEditPopup(true);
   };
