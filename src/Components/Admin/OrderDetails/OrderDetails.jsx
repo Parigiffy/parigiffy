@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { XCircle } from "react-bootstrap-icons";
 import "./Orderdetails.css";
+import { url } from "../../url";
 
 function OrderDetails() {
   const navigate = useNavigate();
@@ -14,8 +15,8 @@ function OrderDetails() {
 
   const orders_list = async () => {
     try {
-      const url = "/api/orders/admin/total&orders";
-      const data = await axios.post(url);
+      // const url = "/api/orders/admin/total&orders";
+      const data = await axios.post(`${url}/api/orders/admin/total&orders`);
       setOrders(data.data);
     } catch (error) {
       setError(error.message);

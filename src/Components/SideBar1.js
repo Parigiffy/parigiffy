@@ -22,7 +22,6 @@ const SideBar1 = () => {
     const { data } = await axios.post(`${url}/api/departments`);
     setDepartments(data);
     localStorage.setItem("totalCategory", JSON.stringify(data));
-    console.log(data);
   };
 
   const get_products = async () => {
@@ -82,7 +81,7 @@ const SideBar1 = () => {
                               // navigate(`/product/${department._id}`);
                               navigate(`/category/${department._id}`);
                               deactivate_sidebar();
-                              window.location.reload()
+                              window.location.reload();
                             }}
                           >
                             {department.name}

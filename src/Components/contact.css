@@ -1,0 +1,58 @@
+
+  /*
+  =============== 
+  Reviews
+  ===============
+  */
+  
+
+  .review {
+    background: var(--clr-white);
+    padding: 1.5rem 2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--light-shadow);
+    transition: var(--transition);
+    text-align: center;
+  }
+  .review:hover {
+    box-shadow: var(--dark-shadow);
+  }
+  .job {
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: rgb(14, 111, 215);
+    font-size: 0.85rem;
+  }
+  .info {
+    margin-bottom: 0.75rem;
+  }
+  .prev-btn,
+  .next-btn {
+    color: rgb(14, 111, 215);
+    font-size: 1.25rem;
+    background: transparent;
+    border-color: transparent;
+    margin: 0 0.5rem;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  .prev-btn:hover,
+  .next-btn:hover {
+    color: var(--clr-primary-5);
+  }
+  .random-btn {
+    margin-top: 0.5rem;
+    background: var(--clr-primary-10);
+    color: var(--clr-primary-5);
+    padding: 0.25rem 0.5rem;
+    text-transform: capitalize;
+    border-radius: var(--radius);
+    transition: var(--transition);
+    border-color: transparent;
+    cursor: pointer;
+  }
+  .random-btn:hover {
+    background: var(--clr-primary-5);
+    color: var(--clr-primary-1);
+  }
+  

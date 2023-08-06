@@ -67,9 +67,6 @@ function Payment() {
 
   const [payments, setPayments] = useState(false);
   const [payDetails, setPayDetails] = useState(false);
-  console.log(paymentMode);
-  console.log(payDetails);
-  console.log(payments);
 
   const payment_list = async () => {
     try {
@@ -117,7 +114,6 @@ function Payment() {
       })
       .map((product) => product);
   }
-  // console.log(zellepay[0].name, zellepay[0].type);
 
   const countries = Country.getAllCountries().map((country) => ({
     value: country.isoCode,
@@ -237,7 +233,7 @@ function Payment() {
       setNumberError("Please enter a valid contact number.");
     } else if (event.target.value.includes("+")) {
       setNumberError("Country code isn't required.");
-    } else if (event.target.value.length !== 10) {
+    } else if (event.target.value.length < 8) {
       setNumberError("Please enter a 10-digit valid contact number.");
     } else {
       setNumberError("");
@@ -271,7 +267,7 @@ function Payment() {
   const handlePincodeBlur = (event) => {
     if (event.target.value === "") {
       setPincodeError("Please enter your pincode.");
-    } else if (Pincode.length !== 6) {
+    } else if (Pincode.length !== 5) {
       setPincodeError("Please enter a valid pincode.");
     } else {
       setPincodeError("");
@@ -406,13 +402,11 @@ function Payment() {
     if (event.target.value === "") {
       setCardNumberError("Please enter your card details.");
     } else if (cardType === "American" && event.target.value.length !== 15) {
-      console.log("Not an american");
       setCardNumberError("Please enter valid card number.");
     } else if (
       (cardType === "Visa" && event.target.value.length !== 16) ||
       (cardType === "Mastercard" && event.target.value.length !== 16)
     ) {
-      console.log("Not an visa or master");
       setCardNumberError("Please enter valid card number.");
     } else if (cardType === "") {
       setCardNumberError("Please enter valid card number.");
@@ -667,7 +661,7 @@ function Payment() {
                       setPayDetails(paypalpay);
                     }}
                   />
-                  Paypal
+                  Paypal &nbsp;&nbsp;&nbsp;&nbsp;
                   <img src={paypal} width={50} height={42} />
                 </div>
                 <div className='cod payment-select'>
@@ -695,7 +689,7 @@ function Payment() {
                       setPayDetails(applepay);
                     }}
                   />
-                  Apple &nbsp;
+                  Apple &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <img src={apple} width={50} height={49} />
                 </div>
                 <div className='cod payment-select'>
@@ -709,7 +703,7 @@ function Payment() {
                       setPayDetails(zellepay);
                     }}
                   />
-                  Zelle &nbsp;&nbsp;&nbsp;&nbsp;
+                  Zelle &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <img src={zelle} width={50} height={49} />
                 </div>
                 <div className='cod payment-select'>
@@ -723,7 +717,7 @@ function Payment() {
                       setPayDetails(venmopay);
                     }}
                   />
-                  Venmo
+                  Venmo &nbsp;&nbsp;&nbsp;
                   <img src={venmo} width={50} height={49} />
                 </div>
                 <div className='cod payment-select'>

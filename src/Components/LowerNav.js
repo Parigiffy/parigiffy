@@ -11,6 +11,7 @@ import "./navbar.css";
 import { app } from "../Firebase";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import swal from "sweetalert";
+import { url } from "./url";
 
 const auth = getAuth(app);
 
@@ -45,7 +46,7 @@ function LowerNav() {
     });
 
     const GetProducts = async () => {
-      const data = await fetch("https://fakestoreapi.com/products");
+      const data = await fetch(`${url}/api/products`);
       const new_data = await data.json();
       setProducts(new_data);
     };

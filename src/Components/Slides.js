@@ -36,12 +36,10 @@ function FillExample() {
 
   const ListItems = useSelector((state) => state.ItemsAdded.ListItems);
   const dispatch = useDispatch();
-  console.log(AllProducts);
 
   useEffect(() => {
     const GetProducts = async () => {
       const { data } = await axios.get(`${url}/api/products/`);
-      console.log(data);
 
       setLoading(false);
       setAllProducts(data);

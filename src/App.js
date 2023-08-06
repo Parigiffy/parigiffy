@@ -27,6 +27,7 @@ import Users from "./view/Admin/Pages/Users";
 import Departments from "./view/Admin/Pages/Departments";
 import BasicSlider from "./Components/Carousel";
 import Payments from "./Components/Admin/Payments/Paymets";
+import ContactUs from "./Components/ContactUs";
 
 const auth = getAuth(app);
 
@@ -58,6 +59,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/contact' element={<ContactUs />} />
         <Route path='/' element={user ? <Navigate to='/home' /> : <Signin />} />
         <Route path='/home' element={<Home />} />
         <Route
@@ -66,7 +68,6 @@ function App() {
         />
         {user && (
           <>
-            
             <Route path='/wishlists' element={<Lists />} />
             <Route path='/cart' element={<CartSection />} />
             <Route path='/payment' element={<Payment />} />

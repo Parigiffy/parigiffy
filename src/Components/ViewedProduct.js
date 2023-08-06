@@ -25,13 +25,10 @@ function ViewedProduct({ id }) {
 
   const ListItems = useSelector((state) => state.ItemsAdded.ListItems);
   const dispatch = useDispatch();
-  console.log(AllProducts);
 
   useEffect(() => {
     const GetProducts = async () => {
       const { data } = await axios.post(`${url}/api/products/${id}`);
-      console.log(data);
-      console.log(id);
 
       setLoading(false);
       setAllProducts(data);

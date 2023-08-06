@@ -24,7 +24,6 @@ function Category() {
 
   const ListItems = useSelector((state) => state.ItemsAdded.ListItems);
   const dispatch = useDispatch();
-  console.log(AllProducts);
 
   useEffect(() => {
     const GetProducts = async () => {
@@ -51,7 +50,6 @@ function Category() {
     const ids = ListItems.map((item) => item._id);
     setAddedIds(ids);
   }, [ListItems]);
-  // console.log(AllProducts[0].category);
   const isAdded = (itemId) => {
     // Check if the item id is in the added ids
     return AddedIds.includes(itemId);

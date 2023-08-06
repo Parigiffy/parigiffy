@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { Plus, Trash, XCircle, PencilSquare } from "react-bootstrap-icons";
 import axios from "axios";
 import Header from "../Header/header";
+import { url } from "../../url";
 
 function Payments() {
   const dispatch = useDispatch();
@@ -30,8 +31,8 @@ function Payments() {
 
   const payment_list = async () => {
     try {
-      const url = "/api/payments";
-      const { data } = await axios.post(url);
+      // const url = "/api/payments";
+      const { data } = await axios.post(`${url}/api/payments`);
       setPayments(data);
     } catch (error) {
       setError(error.message);
@@ -43,8 +44,8 @@ function Payments() {
   }, []);
 
   const add_payment = (data) => {
-    const url = "/api/payments/add";
-    axios.post(url, data);
+    // const url = "/api/payments/add";
+    axios.post(`${url}/api/payments/add`, data);
     close_add_toggle();
     dispatch(payment_list());
   };
@@ -53,9 +54,9 @@ function Payments() {
     const paymentId = {
       id: id,
     };
-    let url = "/api/payments/delete";
+    // let url = "/api/payments/delete";
 
-    await axios.post(url, paymentId);
+    await axios.post(`${url}/api/payments/delete`, paymentId);
     dispatch(payment_list());
   };
 
@@ -78,8 +79,8 @@ function Payments() {
   };
 
   const save_edit = async (data) => {
-    let url = "/api/payments/edit";
-    await axios.post(url, data);
+    // let url = "/api/payments/edit";
+    await axios.post(`${url}/api/payments/edit`, data);
     close_toggle();
     dispatch(payment_list());
   };

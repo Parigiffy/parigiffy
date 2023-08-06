@@ -563,9 +563,9 @@ input[type="radio"] {
   .acc-exp > input {
     width: 215px;
   }
-  .payment-select img {
+  /* .payment-select img {
     padding-left: 30%;
-  }
+  } */
 }
 
 @media (max-width: 365px) {

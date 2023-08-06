@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "./AddProduct.css";
 import { useNavigate, Link } from "react-router-dom";
+import { url } from "../../url";
 // import random from "../../../../node_modules/random/dist/cjs/index";
 
 function AddProduct() {
@@ -36,7 +37,7 @@ function AddProduct() {
       numReviews: review,
     },
   ];
-  console.log(product);
+
   const add_product = async (e) => {
     // const url = "/api/products/add";
     // axios
@@ -45,7 +46,7 @@ function AddProduct() {
     //   .catch(function (error) {});
 
     try {
-      const res = await axios.post("/api/products/add", product);
+      const res = await axios.post(`${url}/api/products/add`, product);
       console.log(res);
     } catch (error) {
       console.log(error);
@@ -54,8 +55,8 @@ function AddProduct() {
 
   const department_list = async () => {
     try {
-      const url = "/api/departments";
-      const { data } = await axios.post(url);
+      // const url = "/api/departments";
+      const { data } = await axios.post(`${url}/api/departments`);
       setDepartments(data);
     } catch (error) {
       setError(error.message);

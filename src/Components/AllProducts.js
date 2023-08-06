@@ -10,6 +10,7 @@ import Spinner from "./Spinner";
 import LowerNav from "./LowerNav";
 import { NavLink } from "react-router-dom";
 import Navbar from "./Navbar";
+import { url } from "./url";
 
 function Deals() {
   const [AllProducts, setAllProducts] = useState([]);
@@ -21,7 +22,7 @@ function Deals() {
 
   useEffect(() => {
     const GetProducts = async () => {
-      const data = await fetch("https://fakestoreapi.com/products");
+      const data = await fetch(`${url}/api/products`);
       const new_data = await data.json();
       setLoading(false);
       setAllProducts(new_data);

@@ -20,6 +20,7 @@ import SideBar1 from "./SideBar1";
 import ShopCategory from "./ShopCategory";
 import Marquee from "./TextAnimate";
 import ViewedProduct from "./ViewedProduct";
+import ReviewForm from "./Reviews";
 
 function ProductPage() {
   const { id } = useParams();
@@ -32,8 +33,6 @@ function ProductPage() {
 
   const tiltRef = useRef(null);
   const breadcrumbs = useBreadcrumbs();
-  console.log(product);
-  console.log(deptId);
 
   document.title = `${product ? product.name : "Erofetshgear"}`;
 
@@ -45,7 +44,6 @@ function ProductPage() {
       let path = window.location.pathname;
       path = path.split("/")[2];
       const data = await axios.get(`${url}/api/products/${id}`);
-      console.log(data);
 
       setProduct(data.data);
       setDeptId(data.data.department);
@@ -264,7 +262,9 @@ function ProductPage() {
               </Accordion.Item>
               <Accordion.Item eventKey='1'>
                 <Accordion.Header>Reviews</Accordion.Header>
-                <Accordion.Body>hi</Accordion.Body>
+                <Accordion.Body>
+                  <ReviewForm />
+                </Accordion.Body>
               </Accordion.Item>
             </Accordion>
           </p>

@@ -33,7 +33,7 @@ function Home() {
   document.title = "Erofetishgear";
   const navigate = useNavigate();
   const category = JSON.parse(localStorage.getItem("totalCategory"));
-  console.log(category);
+
   const handleScroll = () => {
     window.scrollTo({
       top: scrollPosition + 750,

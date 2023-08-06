@@ -23,7 +23,6 @@ function Deals() {
   useEffect(() => {
     const GetProducts = async () => {
       const { data } = await axios.get(`${url}/api/products/`);
-      console.log(data);
 
       setLoading(false);
       setAllProducts(data);

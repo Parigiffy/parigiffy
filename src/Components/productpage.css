@@ -30,6 +30,7 @@
 .rating-no {
   font-family: "Poppins";
   padding-left: 5px;
+  margin-bottom: 0px;
 }
 
 .item-img {
@@ -364,9 +365,9 @@
 .row{
   --bs-gutter-x: 0;
 }
-.accordion-width{
+/* .accordion-width{
   max-width: 91%;
-}
+} */
 .accordion-header{
   max-width: 96%;
 }
@@ -380,7 +381,7 @@
     margin-bottom: 0;
   }
   .accordion-width{
-    max-width: 88%;
+    /* max-width: 88%; */
     margin: 10px;
     
   }
@@ -404,6 +405,7 @@
   }
   .rating-no {
     font-size: 15px;
+   
   }
   .rating-img {
     width: 20px;

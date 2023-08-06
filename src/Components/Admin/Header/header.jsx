@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 // import { FirebaseContext } from "../../../store/FirebaseContext";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { url } from "../../url";
 // import { Search } from "../../../../node_modules/@material-ui/icons/index";
 
 function Header() {
@@ -16,8 +17,8 @@ function Header() {
   const [search, setSearch] = useState(false);
 
   const get_products = async () => {
-    let url = "/api/products";
-    const { data } = await axios.get(url);
+    // let url = "/api/products";
+    const { data } = await axios.get(`${url}/api/products`);
     setProducts(data);
   };
 

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { JournalRichtext, Trash, XCircle } from "react-bootstrap-icons";
 import { useDispatch } from "react-redux";
+import { url } from "../../url";
 
 function Users() {
   const dispatch = useDispatch();
@@ -14,8 +15,8 @@ function Users() {
 
   const users_list = async () => {
     try {
-      const url = "/api/users/admin/total&users";
-      const data = await axios.post(url);
+      // const url = "/api/users/admin/total&users";
+      const data = await axios.post(`${url}/api/users/admin/total&users`);
       setUsers(data.data);
     } catch (error) {
       setError(error.message);
@@ -30,13 +31,15 @@ function Users() {
     const userId = {
       id: id,
     };
-    let url = "/api/users/delete";
+    // let url = "/api/users/delete";
 
-    axios.post(url, userId).then(() => dispatch(users_list()));
+    axios
+      .post(`${url}/api/users/delete`, userId)
+      .then(() => dispatch(users_list()));
   };
 
   const view_toggle = async (id) => {
-    const data = await axios.get(`/api/users/${id}`);
+    const data = await axios.get(`${url}/api/users/${id}`);
     setViewUser(data.data);
     setUserPopup(true);
   };

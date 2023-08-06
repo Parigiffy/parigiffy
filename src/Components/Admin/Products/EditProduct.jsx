@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 import { detailsProduct } from "../../../action/productActions";
 import "./EditProduct.css";
+import { url } from "../../url";
 
 function EditProduct() {
   const proId = window.location.pathname.split("/");
@@ -48,15 +49,15 @@ function EditProduct() {
 
   const department_list = async () => {
     try {
-      const url = "/api/departments";
-      const { data } = await axios.post(url);
+      // const url = "/api/departments";
+      const { data } = await axios.post(`${url}/api/departments`);
       setDepartments(data);
     } catch (error) {}
   };
 
   const save_edit = async (data) => {
-    let url = "/api/products/edit";
-    await axios.post(url, data);
+    // let url = "/api/products/edit";
+    await axios.post(`${url}/api/products/edit`, data);
     navigate("/admin/products");
   };
 

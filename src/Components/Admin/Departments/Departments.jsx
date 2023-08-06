@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Plus, Trash, XCircle, PencilSquare } from "react-bootstrap-icons";
 import axios from "axios";
+import { url } from "../../url";
 
 function Departments() {
   const dispatch = useDispatch();
@@ -29,8 +30,8 @@ function Departments() {
 
   const department_list = async () => {
     try {
-      const url = "/api/departments";
-      const { data } = await axios.post(url);
+      // const url = "/api/departments";
+      const { data } = await axios.post(`${url}/api/departments`);
       setDepartments(data);
     } catch (error) {
       setError(error.message);
@@ -42,8 +43,8 @@ function Departments() {
   }, []);
 
   const add_department = (data) => {
-    const url = "/api/departments/add";
-    axios.post(url, data);
+    // const url = "/api/departments/add";
+    axios.post(`${url}/api/departments/add`, data);
     close_add_toggle();
     dispatch(department_list());
   };
@@ -52,9 +53,9 @@ function Departments() {
     const departmentId = {
       id: id,
     };
-    let url = "/api/departments/delete";
+    // let url = "/api/departments/delete";
 
-    await axios.post(url, departmentId);
+    await axios.post(`${url}/api/departments/delete`, departmentId);
     dispatch(department_list());
   };
 
@@ -67,7 +68,7 @@ function Departments() {
   };
 
   const view_toggle = async (id) => {
-    const data = await axios.post(`/api/departments/${id}`);
+    const data = await axios.post(`${url}/api/departments/${id}`);
     setEdit(data.data);
     setEditPopup(true);
   };
@@ -77,8 +78,8 @@ function Departments() {
   };
 
   const save_edit = async (data) => {
-    let url = "/api/departments/edit";
-    await axios.post(url, data);
+    // let url = "/api/departments/edit";
+    await axios.post(`${url}/api/departments/edit`, data);
     close_toggle();
     dispatch(department_list());
   };
