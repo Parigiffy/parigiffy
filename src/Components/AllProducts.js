@@ -22,7 +22,7 @@ function Deals() {
 
   useEffect(() => {
     const GetProducts = async () => {
-      const data = await fetch(`${url}/api/products`);
+      const {data} = await fetch(`${url}/api/products`);
       const new_data = await data.json();
       setLoading(false);
       setAllProducts(new_data);
